@@ -26,6 +26,8 @@ import org.optaplanner.core.api.solver.ProblemFactChange;
  */
 public class AddTaskProblemFactChange implements ProblemFactChange<TaskAssigningSolution> {
 
+    private int id;
+
     private TaskAssignment taskAssignment;
 
     public AddTaskProblemFactChange(TaskAssignment taskAssignment) {
@@ -48,5 +50,9 @@ public class AddTaskProblemFactChange implements ProblemFactChange<TaskAssigning
         solution.getTaskAssignmentList().add(taskAssignment);
         scoreDirector.afterEntityAdded(taskAssignment);
         scoreDirector.triggerVariableListeners();
+    }
+
+    public int getId() {
+        return id;
     }
 }

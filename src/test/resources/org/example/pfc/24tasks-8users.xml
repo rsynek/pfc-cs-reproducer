@@ -1,83 +1,43 @@
 <org.example.pfc.domain.TaskAssigningSolution id="1">
-  <id>0</id>
   <userList id="2">
     <org.example.pfc.domain.User id="3">
       <id>Amy</id>
       <enabled>true</enabled>
-      <groups class="linked-hash-set" id="4">
-        <org.example.pfc.domain.Group id="5">
-          <id>Sales</id>
-        </org.example.pfc.domain.Group>
-        <org.example.pfc.domain.Group id="6">
-          <id>Legal</id>
-        </org.example.pfc.domain.Group>
-      </groups>
       <attributes id="7"/>
     </org.example.pfc.domain.User>
     <org.example.pfc.domain.User id="8">
       <id>Beth</id>
       <enabled>true</enabled>
-      <groups class="linked-hash-set" id="9"/>
       <attributes id="10"/>
     </org.example.pfc.domain.User>
     <org.example.pfc.domain.User id="11">
       <id>Chad</id>
       <enabled>true</enabled>
-      <groups class="linked-hash-set" id="12">
-        <org.example.pfc.domain.Group id="13">
-          <id>Manager</id>
-        </org.example.pfc.domain.Group>
-        <org.example.pfc.domain.Group id="14">
-          <id>Developer</id>
-        </org.example.pfc.domain.Group>
-      </groups>
       <attributes id="15"/>
     </org.example.pfc.domain.User>
     <org.example.pfc.domain.User id="16">
       <id>Dan</id>
       <enabled>true</enabled>
-      <groups class="linked-hash-set" id="17">
-        <org.example.pfc.domain.Group reference="5"/>
-        <org.example.pfc.domain.Group reference="6"/>
-      </groups>
       <attributes id="18"/>
     </org.example.pfc.domain.User>
     <org.example.pfc.domain.User id="19">
       <id>Elsa</id>
       <enabled>true</enabled>
-      <groups class="linked-hash-set" id="20">
-        <org.example.pfc.domain.Group id="21">
-          <id>HR</id>
-        </org.example.pfc.domain.Group>
-        <org.example.pfc.domain.Group id="22">
-          <id>IT</id>
-        </org.example.pfc.domain.Group>
-      </groups>
       <attributes id="23"/>
     </org.example.pfc.domain.User>
     <org.example.pfc.domain.User id="24">
       <id>Flo</id>
       <enabled>true</enabled>
-      <groups class="linked-hash-set" id="25">
-        <org.example.pfc.domain.Group reference="13"/>
-        <org.example.pfc.domain.Group reference="14"/>
-      </groups>
       <attributes id="26"/>
     </org.example.pfc.domain.User>
     <org.example.pfc.domain.User id="27">
       <id>Gus</id>
       <enabled>true</enabled>
-      <groups class="linked-hash-set" id="28">
-        <org.example.pfc.domain.Group reference="22"/>
-      </groups>
       <attributes id="29"/>
     </org.example.pfc.domain.User>
     <org.example.pfc.domain.User id="30">
       <id>Hugo</id>
       <enabled>true</enabled>
-      <groups class="linked-hash-set" id="31">
-        <org.example.pfc.domain.Group reference="6"/>
-      </groups>
       <attributes id="32"/>
     </org.example.pfc.domain.User>
   </userList>

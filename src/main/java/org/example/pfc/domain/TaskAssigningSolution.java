@@ -28,7 +28,7 @@ import org.optaplanner.core.api.domain.valuerange.ValueRangeProvider;
 import org.optaplanner.core.api.score.buildin.bendablelong.BendableLongScore;
 
 @PlanningSolution
-public class TaskAssigningSolution extends IdentifiableElement {
+public class TaskAssigningSolution {
 
     public static final int HARD_LEVELS_SIZE = 2;
     public static final int SOFT_LEVELS_SIZE = 6;
@@ -48,8 +48,7 @@ public class TaskAssigningSolution extends IdentifiableElement {
         // required for marshaling and FieldAccessingSolutionCloner purposes.
     }
 
-    public TaskAssigningSolution(String id, List<User> userList, List<TaskAssignment> taskAssignmentList) {
-        super(id);
+    public TaskAssigningSolution(List<User> userList, List<TaskAssignment> taskAssignmentList) {
         this.userList = userList;
         this.taskAssignmentList = taskAssignmentList;
     }

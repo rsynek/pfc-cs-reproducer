@@ -29,10 +29,6 @@ import org.optaplanner.core.api.score.director.ScoreDirector;
 
 public class StartAndEndTimeUpdatingVariableListener implements VariableListener<TaskAssigningSolution, TaskAssignment> {
 
-    public StartAndEndTimeUpdatingVariableListener() {
-        // required for native execution.
-    }
-
     @Override
     public void beforeEntityAdded(final ScoreDirector<TaskAssigningSolution> scoreDirector, final TaskAssignment taskAssignment) {
         // Do nothing

@@ -16,14 +16,11 @@
 package org.example.pfc.domain;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
-public class User extends ChainElement implements OrganizationalEntity {
+public class User extends ChainElement {
 
     private boolean enabled;
-    private Set<Group> groups = new HashSet<>();
     private Map<String, Object> attributes = new HashMap<>();
 
     public User() {
@@ -39,24 +36,15 @@ public class User extends ChainElement implements OrganizationalEntity {
         this.enabled = enabled;
     }
 
-    public User(String id, boolean enabled, Set<Group> groups, Map<String, Object> attributes) {
+    public User(String id, boolean enabled, Map<String, Object> attributes) {
         super(id);
         this.enabled = enabled;
-        this.groups = groups != null ? groups : new HashSet<>();
         this.attributes = attributes != null ? attributes : new HashMap<>();
     }
 
     @Override
     public boolean isTaskAssignment() {
         return false;
-    }
-
-    public Set<Group> getGroups() {
-        return groups;
-    }
-
-    public void setGroups(Set<Group> groups) {
-        this.groups = groups != null ? groups : new HashSet<>();
     }
 
     public Map<String, Object> getAttributes() {
@@ -67,25 +55,11 @@ public class User extends ChainElement implements OrganizationalEntity {
         this.attributes = attributes != null ? attributes : new HashMap<>();
     }
 
-    public boolean isEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-    }
-
-    @Override
-    public boolean isUser() {
-        return true;
-    }
-
     @Override
     public String toString() {
         return "User{" +
                 "id='" + id + '\'' +
                 ", enabled=" + enabled +
-                ", groups=" + groups +
                 ", attributes=" + attributes +
                 '}';
     }

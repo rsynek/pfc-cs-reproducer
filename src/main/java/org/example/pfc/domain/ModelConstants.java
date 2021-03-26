@@ -31,7 +31,7 @@ public class ModelConstants {
      * Planning user is defined user for avoid breaking hard constraints. When no user is found that met the task required
      * potential owners set, or the required skills set, etc, the PLANNING_USER is assigned.
      */
-    public static final User PLANNING_USER = new ImmutableUser(PLANNING_USER_ID, true, Collections.emptySet(), Collections.emptyMap());
+    public static final User PLANNING_USER = new User(PLANNING_USER_ID, true, Collections.emptyMap());
     public static final Predicate<String> IS_PLANNING_USER = entityId -> PLANNING_USER.getId().equals(entityId);
 
     private static final ZonedDateTime DUMMY_DATE = ZonedDateTime.parse("2021-01-01T01:01:01.001Z",
@@ -43,21 +43,22 @@ public class ModelConstants {
      * thus with no tasks and an exception is thrown.
      * Since the only potential owner for the dummy task is the PLANNING_USER this task won't affect the score dramatically.
      */
-    public static final TaskAssignment DUMMY_TASK_ASSIGNMENT = new ImmutableTaskAssignment(new ImmutableTask("-1",
-            "dummy-task",
-            "dummy-state",
-            "dummy-description",
-            "dummy-reference-name",
-            "1",
-            "dummy-process-instance-id",
-            "dummy-process-id",
-            "dummy-root-process-instance-id",
-            "dummy-root-process-id",
-            DUMMY_DATE,
-            DUMMY_DATE,
-            DUMMY_DATE,
-            "dummy-endpoint"),
-            false);
+    public static final TaskAssignment DUMMY_TASK_ASSIGNMENT = new TaskAssignment(Task.newBuilder()
+            .id("-1")
+            .name("dummy-task")
+            .state("dummy-state")
+            .description("dummy-description")
+            .referenceName("dummy-reference-name")
+            .priority("1")
+            .processInstanceId("dummy-process-instance-id")
+            .processId("dummy-process-id")
+            .rootProcessInstanceId("dummy-root-process-instance-id")
+            .rootProcessId("dummy-root-process-id")
+            .started(DUMMY_DATE)
+            .completed(DUMMY_DATE)
+            .lastUpdate(DUMMY_DATE)
+            .endpoint("dummy-endpoint")
+            .build());
 
     /**
      * This task was introduced for avoid falling into scenarios where we have all assignments pinned and only one
@@ -65,21 +66,23 @@ public class ModelConstants {
      * the DUMMY_TASK_ASSIGNMENT ensures two available elements. (see https://issues.jboss.org/browse/PLANNER-1738)
      * Will be removed when issue is fixed.
      */
-    public static final TaskAssignment DUMMY_TASK_ASSIGNMENT_PLANNER_1738 = new ImmutableTaskAssignment(new ImmutableTask("-1738",
-            "dummy-task-1738",
-            "dummy-state-1738",
-            "dummy-description-1738",
-            "dummy-reference-name-1738",
-            "1",
-            "dummy-process-instance-id-241",
-            "dummy-process-id-241",
-            "dummy-root-process-instance-id-241",
-            "dummy-root-process-id-241",
-            DUMMY_DATE,
-            DUMMY_DATE,
-            DUMMY_DATE,
-            "dummy-endpoint-241"),
-            false);
+    public static final TaskAssignment DUMMY_TASK_ASSIGNMENT_PLANNER_1738 = new TaskAssignment(Task.newBuilder()
+            .id("-1738")
+            .name("dummy-task-1738")
+            .state("dummy-state-1738")
+            .description("dummy-description-1738")
+            .referenceName("dummy-reference-name-1738")
+            .priority("1")
+            .processInstanceId("dummy-process-instance-id-241")
+            .processId("dummy-process-id-241")
+            .rootProcessInstanceId("dummy-root-process-instance-id-241")
+            .rootProcessId("dummy-root-process-id-241")
+            .started(DUMMY_DATE)
+            .completed(DUMMY_DATE)
+            .lastUpdate(DUMMY_DATE)
+            .endpoint("dummy-endpoint-241")
+            .build());
+
 
     public static final Predicate<TaskAssignment> IS_NOT_DUMMY_TASK_ASSIGNMENT =
             taskAssignment -> !DUMMY_TASK_ASSIGNMENT.getId().equals(taskAssignment.getId()) &&

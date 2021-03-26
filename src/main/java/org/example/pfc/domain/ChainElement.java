@@ -19,10 +19,13 @@ package org.example.pfc.domain;
 import static org.example.pfc.domain.TaskAssignment.PREVIOUS_ELEMENT;
 
 import org.optaplanner.core.api.domain.entity.PlanningEntity;
+import org.optaplanner.core.api.domain.lookup.PlanningId;
 import org.optaplanner.core.api.domain.variable.InverseRelationShadowVariable;
 
 @PlanningEntity
-public abstract class ChainElement extends IdentifiableElement {
+public abstract class ChainElement {
+
+    protected String id;
 
     @InverseRelationShadowVariable(sourceVariableName = PREVIOUS_ELEMENT)
     protected TaskAssignment nextElement;
@@ -31,7 +34,16 @@ public abstract class ChainElement extends IdentifiableElement {
     }
 
     protected ChainElement(String id) {
-        super(id);
+        this.id = id;
+    }
+
+    @PlanningId
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public TaskAssignment getNextElement() {
